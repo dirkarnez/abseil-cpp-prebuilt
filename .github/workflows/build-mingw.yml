@@ -23,7 +23,7 @@ jobs:
     runs-on: windows-latest
     env:
       libraryName: abseil-cpp
-      tag: 20230802.0
+      tag: '20230802.0'
       cmakeInstallationPath: abseil-cpp-installation
     steps:
       - name: git clone
