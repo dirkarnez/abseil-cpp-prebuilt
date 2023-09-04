@@ -66,11 +66,11 @@ jobs:
         with:
           type: 'zip'
           directory: "abseil-cpp/cmake-build/${{ env.cmakeInstallationPath }}"
-          filename: "midifile-${{ github.ref_name }}-${{ matrix.compiler.name }}.zip"
+          filename: "${{ github.event.repository.name }}-${{ github.ref_name }}-${{ matrix.compiler.name }}.zip"
         
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "abseil-cpp/cmake-build/${{ env.cmakeInstallationPath }}/midifile-${{ github.ref_name }}-${{ matrix.compiler.name }}.zip"
+          artifacts: "abseil-cpp/cmake-build/${{ env.cmakeInstallationPath }}/${{ github.event.repository.name }}-${{ github.ref_name }}-${{ matrix.compiler.name }}.zip"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
